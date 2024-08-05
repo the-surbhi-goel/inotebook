@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 
 import NoteState from "./context/notes/NoteState";
+import Alert from "./components/shared/Alert";
 
 function App() {
   return (
@@ -12,10 +13,13 @@ function App() {
         <BrowserRouter>
           <div>
             <Navbar />
-            <Routes>
-              {/* Default Route */}
-              <Route exact path="/" element={<Home />} />
-            </Routes>
+            <Alert message=""/>
+            <div className="container">
+              <Routes>
+                {/* Default Route */}
+                <Route exact path="/" element={<Home />} />
+              </Routes>
+            </div>
           </div>
         </BrowserRouter>
       </NoteState>
