@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import NoteContext from "../../context/notes/NoteContext";
 
-export default function AddNote() {
+export default function AddNote(props) {
   const context = useContext(NoteContext);
   const { addNote } = context;
   const [note, setNote] = useState({
@@ -10,9 +10,10 @@ export default function AddNote() {
     tag: "",
   });
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
-    addNote({ ...note, _id: note.title });
+    await addNote({ ...note, _id: note.title });
+    props.setView("LIST");
   };
 
   const onChange = (e) => {
@@ -61,7 +62,16 @@ export default function AddNote() {
             onChange={onChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            props.setView("LIST");
+          }}
+        >
+          Back
+        </button>
+        <button type="submit" className="btn btn-primary mx-3">
           Add Note
         </button>
       </form>

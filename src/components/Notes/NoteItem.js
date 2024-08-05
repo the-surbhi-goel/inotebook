@@ -5,7 +5,7 @@ import "./Notes.css";
 export default function NoteItem(props) {
   const context = useContext(NoteContext);
   const { deleteNote } = context;
-  const { note } = props;
+  const { note, updateNote } = props;
   return (
     <div className="col-md-3">
       <div className="card my-3">
@@ -19,7 +19,12 @@ export default function NoteItem(props) {
                   deleteNote(note._id);
                 }}
               ></i>
-              <i className="fa-solid fa-file-pen"></i>
+              <i
+                className="fa-solid fa-file-pen"
+                onClick={() => {
+                  updateNote(note);
+                }}
+              ></i>
             </div>
           </div>
           <p className="card-text">{note.description}</p>
