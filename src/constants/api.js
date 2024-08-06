@@ -7,6 +7,10 @@ const APIS = {
     updateNote: `${baseURL}api/notes/update-note/`,
     deleteNote: `${baseURL}api/notes/delete-note/`,
   },
+  auth: {
+    login: `${baseURL}api/auth/login`,
+    signUp: `${baseURL}api/auth/signup`
+  }
 };
 
 Object.freeze(APIS);

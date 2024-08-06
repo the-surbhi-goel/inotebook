@@ -37,6 +37,7 @@ export default function AddNote(props) {
             name="title"
             placeholder="Enter title"
             onChange={onChange}
+            minLength={3}
           />
         </div>
         <div className="form-group my-3">
