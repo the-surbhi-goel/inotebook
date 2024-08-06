@@ -42,7 +42,7 @@ export default function Login(props) {
       const json = await response.json();
       if (json.status === "OK") {
         props.showAlert(json.msg, "success");
-        localStorage.setItem("token", json.token);
+        await localStorage.setItem("token", json.token);
         navigate("/", { replace: true });
       }
       return;
