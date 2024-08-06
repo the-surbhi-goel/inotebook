@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import APIS from "../../constants/api";
 
@@ -8,6 +8,13 @@ export default function Login(props) {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if(localStorage.getItem("token")){
+      navigate("/", {replace: true});
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChange = (e) => {
     setCred({
